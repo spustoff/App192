@@ -116,36 +116,44 @@ struct LibraryAdd: View {
                                 .foregroundColor(.gray)
                                 .font(.system(size: 14, weight: .regular))
                             
-                            HStack {
+                            ZStack(alignment: .leading, content: {
+                                
+                                Text("Enter income")
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 15, weight: .regular))
+                                    .opacity(viewModel.income.isEmpty ? 1 : 0)
+                                
+                                TextField("", text: $viewModel.income)
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 15, weight: .regular))
+                                    .keyboardType(.decimalPad)
+                            })
+                            .padding()
+                            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
+                        })
+                        
+                        Button(action: {
+                            
+                            viewModel.isPairs = true
+                            
+                        }, label: {
+                            
+                            VStack(alignment: .leading, content: {
+                                
+                                Text("Pair")
+                                    .foregroundColor(.gray)
+                                    .font(.system(size: 14, weight: .regular))
                                 
                                 ZStack(alignment: .leading, content: {
                                     
-                                    Text("Enter income")
-                                        .foregroundColor(.gray)
+                                    Text(viewModel.pair.isEmpty ? "Type pair" : viewModel.pair)
+                                        .foregroundColor(viewModel.pair.isEmpty ? .gray : .white)
                                         .font(.system(size: 15, weight: .regular))
-                                        .opacity(viewModel.income.isEmpty ? 1 : 0)
-                                    
-                                    TextField("", text: $viewModel.income)
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 15, weight: .regular))
-                                        .keyboardType(.decimalPad)
                                 })
-                                
-                                Button(action: {
-                                    
-                                    viewModel.isPairs = true
-                                    
-                                }, label: {
-                                    
-                                    Text(viewModel.pair.isEmpty ? "PAIR" : viewModel.pair)
-                                        .foregroundColor(.white)
-                                        .font(.system(size: 13, weight: .medium))
-                                        .padding(6)
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color("primary")))
-                                })
-                            }
-                            .padding()
-                            .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
+                                .padding()
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(RoundedRectangle(cornerRadius: 10).fill(.gray.opacity(0.1)))
+                            })
                         })
                     }
                     .padding()
