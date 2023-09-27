@@ -10,5 +10,20 @@
 		<string>whatsapp</string>
 		<string>youtube</string>
 	</array>
+    <key>CFBundleIcons</key>
+    <dict>
+        <key>CFBundleAlternateIcons</key>
+        <dict>
+            <key>AppIcon_2</key> <!-- Имя вашей альтернативной иконки -->
+            <dict>
+                <key>CFBundleIconFiles</key>
+                <array>
+                    <string>AppIcon_2</string> <!-- Имя изображения вашей альтернативной иконки -->
+                </array>
+                <key>UIPrerenderedIcon</key> <!-- Укажите это, если ваша иконка уже содержит эффекты -->
+                <false/>
+            </dict>
+        </dict>
+    </dict>
 </dict>
 </plist>

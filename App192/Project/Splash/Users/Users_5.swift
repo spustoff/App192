@@ -74,7 +74,7 @@ struct Users_5: View {
                         .font(.system(size: 15, weight: .medium))
                         .frame(maxWidth: .infinity)
                         .frame(height: 50)
-                        .background(RoundedRectangle(cornerRadius: 10).fill(Color("primary")))
+                        .background(RoundedRectangle(cornerRadius: 10).fill(Color(red: 24/255, green: 103/255, blue: 221/225)))
                 })
             }
             .padding()
